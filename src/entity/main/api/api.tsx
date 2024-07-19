@@ -1,21 +1,10 @@
-export async function fetchRepo(): Promise<Repo> {
-    console.log('----- call fetchRepo');
-    const res = await fetch(`http://localhost:4000/main`);
+import { serverFetch } from "@/lib/serverFetch";
+import { API_ENDPOINTS } from "../constants/ApiEndpoints";
 
-    if (!res.ok) {
-        throw new Error(`Failed to fetch data`);
-    }
-    
-    return res.json();
+export async function fetchMainContents(): Promise<MainContentsResponse> {
+  return await serverFetch(API_ENDPOINTS.MAIN.CONTENTS);
 }
 
-export async function fetchRepo2(): Promise<Repo> {
-    console.log('----- call fetchRepo2');
-    const res = await fetch(`http://localhost:4000/main2`);
-
-    if (!res.ok) {
-        throw new Error(`Failed to fetch data`);
-    }
-    
-    return res.json();
+export async function fetchMainBanner(): Promise<MainBannerResponse> {
+  return await serverFetch(API_ENDPOINTS.MAIN.BANNER);
 }
