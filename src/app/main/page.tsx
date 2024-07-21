@@ -1,17 +1,18 @@
-import { fetchMainBanner, fetchMainContents } from "@/entity/main/api/api";
-import MainBanner from "@/entity/main/ui/MainBanner";
-import MainContents from "@/entity/main/ui/MainContents";
+import { Header } from "@/widgets/top/ui/Header";
+import { BottomNavigation } from "@/widgets/bottom/navigation/ui/BottomNavigation";
+
+import MainContents from "@/entities/main/ui/MainContents";
+import MainBanner from "@/entities/main/ui/MainBanner";
+import PrivateContents from "@/entities/main/ui/PrivateContents";
 
 export default async function Main() {
-  const [mainContentsResponse, mainBannerResponse] = await Promise.all([
-    fetchMainContents(),
-    fetchMainBanner(),
-  ]);
-
   return (
-    <>
-      <MainContents data={mainContentsResponse} />
-      <MainBanner data={mainBannerResponse} />
-    </>
+    <div className="flex flex-col">
+      <Header />
+      <MainContents />
+      <MainBanner />
+      <PrivateContents />
+      <BottomNavigation />
+    </div>
   );
 }

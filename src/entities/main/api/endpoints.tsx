@@ -8,7 +8,7 @@ export const API_ENDPOINTS = {
     BANNER: {
       method: "GET",
       path: `/api/v1/nextjs/main/banners`,
-      revalidate: 10,
+      revalidate: 5,
     },
   },
 };

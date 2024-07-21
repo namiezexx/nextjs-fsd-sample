@@ -1,23 +1,26 @@
 {
   "env": {
-      "browser": true,
-      "es2021": true
+    "browser": true,
+    "es2021": true
   },
   "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended" // Next.js 플러그인 추가
   ],
   "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true
-      },
-      "ecmaVersion": "latest",
-      "sourceType": "module"
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
-  "plugins": [
-      "react",
-      "prettier" <<< 추가
-  ],
+  "plugins": ["react", "prettier", "@next"], // Next.js 플러그인 추가
+  "settings": {
+    "react": {
+      "version": "detect" // React 버전 자동 감지
+    }
+  },
   "rules": {
     "prettier/prettier": "error"
   }
