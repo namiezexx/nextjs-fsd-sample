@@ -1,5 +1,4 @@
 import LoginButton from "@/app/faeture/login/LoginButton";
-import { Icon } from "@/shared/ui/Icon";
 
 export function Header() {
   return (

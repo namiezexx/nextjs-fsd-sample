@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+
 import { GlobalErrorBoundary } from "@/widgets/error/GlobalErrorBoundary";
 import { AuthContextProvider } from "@/shared/context/AuthContext";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "시니어 건강증진 플랫폼",

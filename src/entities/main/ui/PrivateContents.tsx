@@ -1,27 +1,26 @@
 "use client";
 
 import { useContext, useEffect, useState } from "react";
-import { ApiResponse } from "@/shared/model/types";
-import { MainContentsResponse, MainPrivateResponse } from "../model/model";
-import { API_ENDPOINTS } from "../api/endpoints";
-
 import Image from "next/image";
+
+import { MainPrivateResponse } from "@/entities/main/model/model";
+import { API_ENDPOINTS } from "@/entities/main/api/endpoints";
+
 import { AuthContext } from "@/shared/context/AuthContext";
+import { fetcher } from "@/shared/api/fetcher";
 
 export default function PrivateContents() {
   const { loggedIn } = useContext(AuthContext);
   const [data, setData] = useState<MainPrivateResponse[] | null>(null);
 
   useEffect(() => {
-    fetch(API_ENDPOINTS.MAIN.PRIVATE.path, {
-      method: API_ENDPOINTS.MAIN.PRIVATE.method,
-      next: {
-        revalidate: 10,
-      },
-    })
-      .then((res) => res.json())
-      .then((data: ApiResponse<MainPrivateResponse[]>) => setData(data.data))
-      .catch((err) => console.error(err));
+    async function fetchPrivateContents() {
+      const { data } = await fetcher<MainPrivateResponse[]>(
+        API_ENDPOINTS.MAIN.PRIVATE
+      );
+      setData(data);
+    }
+    fetchPrivateContents();
   }, [loggedIn]);
 
   return (

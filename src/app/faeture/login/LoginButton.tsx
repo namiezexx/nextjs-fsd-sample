@@ -8,16 +8,16 @@ export default function LoginButton() {
   const { loggedIn, setLoggedIn } = useContext(AuthContext);
 
   const login = () => {
-    if (loggedIn === false) {
-      setLoggedIn();
-    }
+    setLoggedIn();
   };
 
   useEffect(() => {}, [loggedIn]);
 
   return (
     <div>
-      <Button onClick={login}>로그인</Button>
+      <Button variant="outline" onClick={login}>
+        {loggedIn === false ? "로그인" : "로그아웃"}
+      </Button>
     </div>
   );
 }
