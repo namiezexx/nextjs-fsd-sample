@@ -17,8 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <GlobalErrorBoundary>{children}</GlobalErrorBoundary>
+      <body className="min-h-screen flex justify-center">
+        <GlobalErrorBoundary>
+          <div className="w-full md:w-2/3 px-4">{children}</div>
+        </GlobalErrorBoundary>
       </body>
     </html>
   );
