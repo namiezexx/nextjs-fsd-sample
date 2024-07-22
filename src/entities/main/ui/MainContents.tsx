@@ -9,10 +9,14 @@ import {
 } from "@/shared/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchMainContents } from "../api/fetcher";
+import { MainContentsResponse } from "../model/model";
+import { API_ENDPOINTS } from "../api/endpoints";
+import { fetcher } from "@/shared/api/fetcher";
 
 export default async function MainContents() {
-  const { data } = await fetchMainContents();
+  const { data } = await fetcher<MainContentsResponse[]>(
+    API_ENDPOINTS.MAIN.CONTENTS
+  );
 
   return (
     <>

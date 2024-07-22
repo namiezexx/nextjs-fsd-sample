@@ -10,5 +10,10 @@ export const API_ENDPOINTS = {
       path: `/api/v1/nextjs/main/banners`,
       revalidate: 5,
     },
+    PRIVATE: {
+      method: "GET",
+      path: `http://localhost:8080/api/v1/nextjs/main/private`,
+      revalidate: 5,
+    },
   },
 };

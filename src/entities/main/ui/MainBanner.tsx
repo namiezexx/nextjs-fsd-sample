@@ -1,13 +1,15 @@
 import Image from "next/image";
-import { fetchMainBanner } from "../api/fetcher";
 import { MainBannerResponse } from "../model/model";
-import { ApiResponse } from "@/shared/model/types";
+import { API_ENDPOINTS } from "../api/endpoints";
+import { fetcher } from "@/shared/api/fetcher";
 
 export default async function MainBanner() {
-  const { data } = await fetchMainBanner();
+  const { data } = await fetcher<MainBannerResponse[]>(
+    API_ENDPOINTS.MAIN.BANNER
+  );
 
   return (
-    <div className="m-5 flex gap-4 overflow-x-auto pb-6 scrollbar-hide">
+    <div className="flex gap-4 overflow-x-auto pb-6 scrollbar-hide">
       {data.map((banner: MainBannerResponse, index: number) => (
         <Image
           key={index}

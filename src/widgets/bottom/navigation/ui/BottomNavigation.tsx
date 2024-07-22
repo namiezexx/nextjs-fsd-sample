@@ -15,7 +15,7 @@ export function BottomNavigation() {
   const [activeItem, setActiveItem] = useState("홈");
 
   return (
-    <nav className="bottom-0 left-0 right-0 h-[78px] bg-white">
+    <nav className="bottom-0 left-0 right-0 h-[78px] bg-green-50">
       <div className="mt-4 mb-4 flex justify-around items-center h-14">
         {navItems.map((item) => (
           <button
