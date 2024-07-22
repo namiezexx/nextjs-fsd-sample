@@ -1,3 +1,4 @@
+import LoginButton from "@/app/faeture/login/LoginButton";
 import { Icon } from "@/shared/ui/Icon";
 
 export function Header() {
@@ -7,7 +8,7 @@ export function Header() {
         <h1 className="font-['Sandoll_Nemony2'] font-normal text-xl text-black">
           세모클래스
         </h1>
-        <Icon name="notification" className="w-8 h-8" />
+        <LoginButton />
       </div>
     </header>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GlobalErrorBoundary } from "@/widgets/error/GlobalErrorBoundary";
+import { AuthContextProvider } from "@/shared/context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex justify-center">
         <GlobalErrorBoundary>
-          <div className="w-full md:w-2/3 px-4">{children}</div>
+          <AuthContextProvider>
+            <div className="w-full md:w-2/5 px-4">{children}</div>
+          </AuthContextProvider>
         </GlobalErrorBoundary>
       </body>
     </html>
