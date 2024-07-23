@@ -10,7 +10,7 @@ export const fetcher = async <T>({
   path: string;
   revalidate: number;
 }): Promise<ApiResponse<T>> => {
-  const res = await customFetch(path, {
+  const res = await fetch("http://localhost:8080" + path, {
     method: method,
     next: {
       revalidate: revalidate,

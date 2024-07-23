@@ -1,4 +1,4 @@
-import LoginButton from "@/app/faeture/login/LoginButton";
+import LoginButton from "@/faeture/login/LoginButton";
 
 export function Header() {
   return (

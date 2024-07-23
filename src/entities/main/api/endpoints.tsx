@@ -3,7 +3,7 @@ export const API_ENDPOINTS = {
     CONTENTS: {
       method: "GET",
       path: `/api/v1/nextjs/main/contents`,
-      revalidate: 5,
+      revalidate: 7,
     },
     BANNER: {
       method: "GET",

@@ -8,6 +8,7 @@ import { API_ENDPOINTS } from "@/entities/main/api/endpoints";
 
 import { AuthContext } from "@/shared/context/AuthContext";
 import { fetcher } from "@/shared/api/fetcher";
+import Link from "next/link";
 
 export default function PrivateContents() {
   const { loggedIn } = useContext(AuthContext);
@@ -33,22 +34,24 @@ export default function PrivateContents() {
       ) : (
         <div className="flex flex-col gap-8 m-5">
           {data?.map((content) => (
-            <div className="flex rounded-[12px] border-2 p-4">
-              <Image
-                src={`/images/image-${content.privateId}.jpg`}
-                alt="image"
-                width={120}
-                height={120}
-              ></Image>
-              <div className="flex flex-col mx-4">
-                <div className="text-xl text-gray-500">{content.title}</div>
-                <div className="text-sm mt-4">{content.description}</div>
-                <div className="flex mt-auto justify-between">
-                  <div className="text-sm">조회수 {content.viewCount}</div>
-                  <div className="text-sm">좋아요 {content.likeCount}</div>
+            <Link href={`/product/${content.privateId}`}>
+              <div className="flex rounded-[12px] border-2 p-4 lg:hover:scale-110 transition-transform ease-in-out duration-500">
+                <Image
+                  src={`/images/image-${content.privateId}.jpg`}
+                  alt="image"
+                  width={120}
+                  height={120}
+                ></Image>
+                <div className="flex flex-col mx-4">
+                  <div className="text-xl text-gray-500">{content.title}</div>
+                  <div className="text-sm mt-4">{content.description}</div>
+                  <div className="flex mt-auto justify-between">
+                    <div className="text-sm">조회수 {content.viewCount}</div>
+                    <div className="text-sm">좋아요 {content.likeCount}</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

@@ -22,7 +22,10 @@ export default async function MainContents() {
     <>
       <div className="m-5 flex gap-4 overflow-x-auto pb-6 scrollbar-hide">
         {data.map((obj, index) => (
-          <Card key={index} className="rounded-[12px] border-2">
+          <Card
+            key={index}
+            className="rounded-[12px] border-2 lg:hover:scale-90 transition-transform ease-in-out duration-500"
+          >
             <CardHeader>
               <CardTitle>{obj.title}</CardTitle>
               <CardDescription className="pt-2">

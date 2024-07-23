@@ -9,7 +9,7 @@ export default async function MainBanner() {
   );
 
   return (
-    <div className="flex gap-4 overflow-x-auto pb-6 scrollbar-hide">
+    <div className="flex overflow-x-auto pb-4 scrollbar-hide">
       {data.map((banner: MainBannerResponse, index: number) => (
         <Image
           key={index}
