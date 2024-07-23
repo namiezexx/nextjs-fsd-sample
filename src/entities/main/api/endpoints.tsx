@@ -12,7 +12,7 @@ export const API_ENDPOINTS = {
     },
     PRIVATE: {
       method: "GET",
-      path: `http://localhost:8080/api/v1/nextjs/main/private`,
+      path: `/api/v1/nextjs/main/private`,
       revalidate: 5,
     },
   },

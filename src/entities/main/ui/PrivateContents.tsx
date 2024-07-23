@@ -21,7 +21,8 @@ export default function PrivateContents() {
       );
       setData(data);
     }
-    fetchPrivateContents();
+
+    if (loggedIn === true) fetchPrivateContents();
   }, [loggedIn]);
 
   return (

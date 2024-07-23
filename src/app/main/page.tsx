@@ -16,7 +16,7 @@ export default async function Main() {
       <ComponentErrorBoundary>
         <MainBanner />
       </ComponentErrorBoundary>
-      {/* <PrivateContents /> */}
+      <PrivateContents />
       <BottomNavigation />
     </div>
   );
